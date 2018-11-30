@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/style.css">
 
   </head>
 
@@ -43,11 +44,15 @@
           <h1 class="mt-5">Add Event</h1>
         </div>
         <div class="col-lg-4 text-center">
-            <a href=""><h1 class="mt-5">+</h1></a>
+            <!-- <a href=""><h1 class="mt-5"><span><script>alert("this is new")</script><h1>+</h1></span></a> -->
+            <div class="mt-5">
+                <h1><a href="" onclick="myFunction()" id="popup">+</a></h1>
+                <div id="createFolder"></div>
+
+            </div>
         </div>
       </div>
       <div class="row">
-        <!-- <div class="col-lg-8"> -->
         <div class="col-lg-4">
             <img src="images/folderIcon.png" alt="icon-image">
             <h5>Hackit Africa Event</h5>
@@ -60,11 +65,18 @@
         <div class="col-lg-4">
          <img src="images/folderIcon.png" alt="icon-image">
          <h5>Machine Learning Event</h5>
-
         </div>
-        <!-- </div> -->
+
       </div>
-    </div>
+    <script>
+            function myFunction() {
+                var x = document.getElementById("createFolder");
+                // x.style.fontSize = "25px";
+                // x.style.color = "#FF0090";
+                // x.style.width = "40%";
+            }
+            </script>
+ 
 
     <!-- Bootstrap core JavaScript -->
     <script src="jquery/jquery.min.js"></script>
