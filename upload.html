@@ -40,24 +40,18 @@
     <!-- Page Content -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 text-left">
-          <h1 class="mt-5">Add Event</h1>
+        <div class="col-lg-6 text-left">
+          <h1 class="mt-5">Event Directories</h1>
         </div>
-        <div class="col-lg-4 text-center">
-            <!-- <a href=""><h1 class="mt-5"><span><script>alert("this is new")</script><h1>+</h1></span></a> -->
+        <!-- <div class="col-lg-4 text-center">
+            <a href=""><h1 class="mt-5"><span><h1>+</h1></span></a>
             <div class="mt-5">
-                <h1><a href="" onclick="myFunction()" id="popup">+</a></h1>
-                <div id="createFolder">
-                  <form>
-                    <input id="foldername" type="text" value="">
-                    <input type="button" value="Submit" onclick="myFunction()" />
-                  </form>
-                </div>
-
+                  <input type="button" value="Submit" onclick="uploadImage('https://pbs.twimg.com/profile_images/1046968391389589507/_0r5bQLl_400x400.jpg')" />
             </div>
+
+            </div> -->
         </div>
-      </div>
-      <div class="row" id="folderCont">
+          <div class="row" id="folderCont">
         <div class="col-lg-4">
             <img src="images/folderIcon.png" alt="icon-image">
             <h5>Hackit Africa Event</h5>
@@ -74,35 +68,50 @@
 
       </div>
       <div class="row">
-        <!-- <div class="col-lg-4">
-            <img src="images/folderIcon.png" alt="icon-image">
-            <h5><div id="alert"></div></h5>
-        </div> -->
+        <div class="mt-5 col-lg-12 text-center">
+            <input type="button" id="newbtn" value="Add Image" onclick="uploadImage('https://gdgkenya.org/images/gdgnairobi.jpg')" />
+        </div>
+    </div>
       </div>
+    
     <script>
-            function myFunction() {
-              // console.log("button clicked")
-              // var imgLoad = 
-              // var Input = document.getElementById('foldername').value
-              var img = document.createElement('img');
-              img.src = "images/folderIcon.png";
-              img.alt = "icon-image";
-              
-              var h5 = document.createElement('h5');
-              h5.innerHTML = document.getElementById('foldername').value
-              var cont = document.createElement('div');
-              cont.className = "col-lg-4";
-              cont.append(img);
-              console.log(cont);
-              cont.append(h5);
-            document.getElementById("folderCont").append(cont);
-            // document.getElementById('alert').innerHTML = Input;
-            }
- 
 
+                  function myFunction() {
+                // console.log("button clicked")
+                // var imgLoad = 
+                // var Input = document.getElementById('foldername').value
+                var img = document.createElement('img');
+                img.src = "images/folderIcon.png";
+                img.alt = "icon-image";
+                
+                var h5 = document.createElement('h5');
+                h5.innerHTML = document.getElementById('foldername').value
+                var cont = document.createElement('div');
+                cont.className = "col-lg-4";
+                cont.append(img);
+                console.log(cont);
+                cont.append(h5);
+              document.getElementById("folderCont").append(cont);
+              // document.getElementById('alert').innerHTML = Input;
+              }
+            function uploadImage(image){
+              var formData = new FormData();
+              formData.append('upload_preset', 'oeyvnb5f');
+              formData.append('api_key', "731234389757974");  
+              formData.append('file',image);
+              var xhr = new XMLHttpRequest();
+          xhr.open("POST", 'https://api.cloudinary.com/v1_1/dsidu8c7m/auto/upload');
+             xhr.onreadystatechange = function () {
+            if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+              var response = JSON.parse(this.response);
+                console.log(response.secure_url);
+                alert("Image uploaded to your cloudinary media library");
+              }
+        }
+        xhr.send(formData);
+            }
 
             </script>
- 
 
     <!-- Bootstrap core JavaScript -->
     <script src="jquery/jquery.min.js"></script>
@@ -111,3 +120,4 @@
   </body>
 
 </html>
+
