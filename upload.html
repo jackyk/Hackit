@@ -47,12 +47,17 @@
             <!-- <a href=""><h1 class="mt-5"><span><script>alert("this is new")</script><h1>+</h1></span></a> -->
             <div class="mt-5">
                 <h1><a href="" onclick="myFunction()" id="popup">+</a></h1>
-                <div id="createFolder"></div>
+                <div id="createFolder">
+                  <form>
+                    <input id="foldername" type="text" value="">
+                    <input type="button" value="Submit" onclick="myFunction()" />
+                  </form>
+                </div>
 
             </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="folderCont">
         <div class="col-lg-4">
             <img src="images/folderIcon.png" alt="icon-image">
             <h5>Hackit Africa Event</h5>
@@ -68,13 +73,34 @@
         </div>
 
       </div>
+      <div class="row">
+        <!-- <div class="col-lg-4">
+            <img src="images/folderIcon.png" alt="icon-image">
+            <h5><div id="alert"></div></h5>
+        </div> -->
+      </div>
     <script>
             function myFunction() {
-                var x = document.getElementById("createFolder");
-                // x.style.fontSize = "25px";
-                // x.style.color = "#FF0090";
-                // x.style.width = "40%";
+              // console.log("button clicked")
+              // var imgLoad = 
+              // var Input = document.getElementById('foldername').value
+              var img = document.createElement('img');
+              img.src = "images/folderIcon.png";
+              img.alt = "icon-image";
+              
+              var h5 = document.createElement('h5');
+              h5.innerHTML = document.getElementById('foldername').value
+              var cont = document.createElement('div');
+              cont.className = "col-lg-4";
+              cont.append(img);
+              console.log(cont);
+              cont.append(h5);
+            document.getElementById("folderCont").append(cont);
+            // document.getElementById('alert').innerHTML = Input;
             }
+ 
+
+
             </script>
  
 
